@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Habeeb O. Adigun — Data & BI Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:           #060D1A;
+  --bg-2:         #0B1525;
+  --bg-card:      #101D35;
+  --bg-card-h:    #142240;
+  --accent:       #E8960A;
+  --accent-dim:   rgba(232,150,10,0.12);
+  --text:         #D4DCEE;
+  --text-2:       #67799A;
+  --text-3:       #37466A;
+  --border:       rgba(212,220,238,0.07);
+  --border-h:     rgba(232,150,10,0.28);
+  --r:            8px;
+  --r-lg:         16px;
+  --mono:         'JetBrains Mono', monospace;
+  --display:      'Space Grotesk', sans-serif;
+  --body:         'Inter', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(6,13,26,0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+}
+.nav-links a {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-2);
+  letter-spacing: 0.01em;
+  transition: color 0.18s;
+}
+.nav-links a:hover { color: var(--text); }
+
+/* ── HERO ── */
+.hero-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+  padding: 128px 48px 80px;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 55% 55% at 72% 50%, rgba(232,150,10,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.hero-name {
+  font-family: var(--display);
+  font-size: clamp(44px, 5.5vw, 68px);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: #ECF1FA;
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-family: var(--display);
+  font-size: clamp(16px, 2vw, 21px);
+  font-weight: 400;
+  color: var(--text-2);
+  letter-spacing: -0.01em;
+  margin-bottom: 26px;
+}
+
+.hero-desc {
+  font-size: 15.5px;
+  color: var(--text-2);
+  line-height: 1.75;
+  max-width: 400px;
+  margin-bottom: 40px;
+}
+
+.ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 13px 26px;
+  border-radius: var(--r);
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.01em;
+}
+.btn-solid {
+  background: var(--accent);
+  color: #060D1A;
+  border: 1px solid var(--accent);
+}
+.btn-solid:hover {
+  background: #F5A50F;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(232,150,10,0.28);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-h);
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── HERO CHART CARD ── */
+.hero-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 26px;
+}
+
+.chart-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chart-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.chart-badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  background: var(--accent-dim);
+  padding: 3px 11px;
+  border-radius: 20px;
+}
+
+.chart-svg { width: 100%; height: 155px; overflow: visible; }
+
+.c-area {
+  fill: url(#aGrad);
+  stroke: none;
+  opacity: 0;
+  animation: aFade 0.7s ease 2.8s forwards;
+}
+.c-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.c-dot {
+  fill: var(--bg-card);
+  stroke: var(--accent);
+  stroke-width: 2;
+  r: 4;
+  opacity: 0;
+}
+.c-dot:nth-child(1) { animation: dPop 0.3s ease 0.9s  forwards; }
+.c-dot:nth-child(2) { animation: dPop 0.3s ease 1.3s  forwards; }
+.c-dot:nth-child(3) { animation: dPop 0.3s ease 1.7s  forwards; }
+.c-dot:nth-child(4) { animation: dPop 0.3s ease 2.1s  forwards; }
+.c-dot:nth-child(5) { animation: dPop 0.3s ease 2.5s  forwards; }
+.c-dot:nth-child(6) { animation: dPop 0.3s ease 2.9s  forwards; }
+
+@keyframes aFade { to { opacity: 1; } }
+@keyframes dPop  {
+  0%   { opacity:0; r:2; }
+  60%  { r:5.5; opacity:1; }
+  100% { r:4;   opacity:1; }
+}
+
+.chart-stats {
+  display: flex;
+  gap: 28px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+.cs { display: flex; flex-direction: column; gap: 2px; }
+.cs-val {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.cs-lbl {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ── SECTION SHELL ── */
+.sec {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 48px;
+}
+
+.sec-eyebrow { margin-bottom: 12px; }
+
+.sec-title {
+  font-family: var(--display);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #E6EEF8;
+  line-height: 1.14;
+  margin-bottom: 14px;
+}
+
+.sec-sub {
+  color: var(--text-2);
+  font-size: 15.5px;
+  line-height: 1.72;
+  max-width: 520px;
+  margin-bottom: 56px;
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-text p {
+  color: var(--text-2);
+  font-size: 15.5px;
+  line-height: 1.78;
+  margin-bottom: 18px;
+}
+.about-text p:last-child { margin-bottom: 0; }
+
+.meta-stack { display: flex; flex-direction: column; gap: 12px; }
+
+.meta-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 18px 20px;
+  transition: border-color 0.2s;
+}
+.meta-card:hover { border-color: var(--border-h); }
+
+.meta-lbl {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+.meta-val {
+  font-family: var(--display);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* ── SKILLS ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.skill-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 18px 20px;
+  transition: all 0.2s;
+}
+.skill-card:hover { border-color: var(--border-h); background: var(--bg-card-h); }
+
+.skill-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 11px;
+}
+.skill-name {
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+.skill-pct {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+}
+
+.skill-bar { height: 3px; background: var(--bg-2); border-radius: 2px; overflow: hidden; }
+.skill-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  width: 0;
+  transition: width 1.1s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ── PROJECTS ── */
+.c-sales       { color: #E8960A; }
+.c-customer    { color: #73DACA; }
+.c-finance     { color: #7AA2F7; }
+.c-ops         { color: #9ECE6A; }
+.c-marketing   { color: #FF9E64; }
+.c-property    { color: #C792EA; }
+.c-agriculture { color: #B5CEA8; }
+.c-hr          { color: #F7768E; }
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+.filter-btn {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-2);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 7px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.18s;
+  user-select: none;
+}
+.filter-btn:hover { color: var(--text); border-color: rgba(212,220,238,0.18); }
+.filter-btn.active { color: var(--accent); border-color: var(--border-h); background: var(--accent-dim); }
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.pc {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 24px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.pc:hover { border-color: var(--border-h); background: var(--bg-card-h); }
+.pc.hidden { display: none; }
+
+.pc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9px;
+}
+.pc-cat {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+.pc-stat {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+}
+.pc-name {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin-bottom: 9px;
+}
+.pc-desc {
+  color: var(--text-2);
+  font-size: 13px;
+  line-height: 1.68;
+  margin-bottom: 13px;
+}
+.pc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.pc-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-3);
+  background: var(--bg-2);
+  border: 1px solid rgba(212,220,238,0.05);
+  padding: 3px 9px;
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+}
+.pc-footer {
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid var(--border);
+}
+.pc-gh {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+  transition: color 0.18s;
+}
+.pc-gh:hover { color: var(--accent); }
+
+/* ── CODE ── */
+.code-wrap {
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.code-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px 48px;
+}
+
+.code-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.code-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.code-tab {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-2);
+  padding: 14px 24px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.18s;
+  letter-spacing: 0.04em;
+  user-select: none;
+}
+.code-tab.on { color: var(--accent); border-bottom-color: var(--accent); }
+.code-tab:not(.on):hover { color: var(--text); }
+
+.code-panel { display: none; padding: 30px 32px; }
+.code-panel.on { display: block; }
+
+pre {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.82;
+  color: var(--text-2);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.kw  { color: #7AA2F7; }
+.fn  { color: #73DACA; }
+.st  { color: #9ECE6A; }
+.cm  { color: var(--text-3); font-style: italic; }
+.nm  { color: #FF9E64; }
+.op  { color: #89DDFF; }
+
+/* ── CONTACT ── */
+.contact-sec {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 96px 48px;
+}
+.contact-sec .sec-title { margin-bottom: 12px; }
+.contact-sec p { color: var(--text-2); font-size: 15px; line-height: 1.72; }
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--display);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-2);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 11px 20px;
+  border-radius: var(--r);
+  transition: all 0.2s;
+}
+.contact-link:hover { color: var(--text); border-color: var(--border-h); background: var(--bg-card-h); }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 26px 48px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-3);
+  letter-spacing: 0.07em;
+}
+
+/* ── FADE IN ── */
+.fi {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.fi.vis { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 16px 22px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 100px 22px 60px; gap: 40px; }
+  .hero-chart { order: -1; }
+  .about-grid { grid-template-columns: 1fr; gap: 36px; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .proj-grid { grid-template-columns: 1fr; }
+  .sec { padding: 64px 22px; }
+  .contact-sec { padding: 64px 22px; }
+  .code-inner { padding: 64px 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">H<span>.</span>A</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#code">Code</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Data &amp; BI Analyst · Lagos, Nigeria</div>
+      <h1 class="hero-name">Habeeb<br>Adigun</h1>
+      <p class="hero-title">Turning raw data into clear decisions</p>
+      <p class="hero-desc">I work with SQL, Power BI, and Python to help teams understand what their numbers say. Available for full-time and contract roles.</p>
+      <div class="ctas">
+        <a href="#projects" class="btn btn-solid">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-chart">
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <span class="chart-label">Revenue Performance</span>
+          <span class="chart-badge">+34.2%</span>
+        </div>
+        <svg class="chart-svg" viewBox="0 0 420 148" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="aGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#E8960A" stop-opacity="0.22"/>
+              <stop offset="100%" stop-color="#E8960A" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <line x1="0" y1="32"  x2="420" y2="32"  stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="74"  x2="420" y2="74"  stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="116" x2="420" y2="116" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <path class="c-area" d="M10,116 C55,106 95,98 140,84 S220,58 262,46 S340,28 410,14 L410,148 L10,148 Z"/>
+          <path class="c-line" id="cLine" d="M10,116 C55,106 95,98 140,84 S220,58 262,46 S340,28 410,14"/>
+          <circle class="c-dot" cx="10"  cy="116"/>
+          <circle class="c-dot" cx="140" cy="84"/>
+          <circle class="c-dot" cx="200" cy="64"/>
+          <circle class="c-dot" cx="262" cy="46"/>
+          <circle class="c-dot" cx="340" cy="28"/>
+          <circle class="c-dot" cx="410" cy="14"/>
+        </svg>
+        <div class="chart-stats">
+          <div class="cs">
+            <div class="cs-val">4+</div>
+            <div class="cs-lbl">Yrs experience</div>
+          </div>
+          <div class="cs">
+            <div class="cs-val">15+</div>
+            <div class="cs-lbl">Dashboards built</div>
+          </div>
+          <div class="cs">
+            <div class="cs-val">6</div>
+            <div class="cs-lbl">Core tools</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="eyebrow sec-eyebrow">About</div>
+  <h2 class="sec-title">Background</h2>
+  <div class="about-grid">
+    <div class="about-text fi">
+      <p>I am a Data and BI Analyst with over four years of experience building reports, dashboards, and data pipelines that give business teams faster answers.</p>
+      <p>My current role at MODAF Farms, a poultry and livestock operation, covers sales performance tracking, product-level revenue analysis, and building Power BI reports used by the commercial team daily. Before that, I worked as a Data Analyst at Lasun Presh Exchange from 2020 to 2023, where I developed most of my SQL and ETL foundations.</p>
+      <p>My undergraduate degree in Zoology trained me to read systems, spot patterns, and ask why something deviates from the norm. That same discipline transfers directly to data work. Both fields are about finding signal in complex, noisy environments.</p>
+    </div>
+    <div class="meta-stack fi" style="transition-delay:0.1s;">
+      <div class="meta-card">
+        <div class="meta-lbl">Location</div>
+        <div class="meta-val">Lagos, Nigeria</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-lbl">Current Role</div>
+        <div class="meta-val">Sales Analyst, MODAF Farms</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-lbl">Education</div>
+        <div class="meta-val">B.Tech Zoology · OAUSTECH, 2023</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-lbl">Certifications</div>
+        <div class="meta-val">Microsoft Azure AZ-900 · Forage (×2)</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-lbl">Availability</div>
+        <div class="meta-val">Open to full-time Data Analyst roles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section class="sec" id="skills">
+  <div class="eyebrow sec-eyebrow">Technical Skills</div>
+  <h2 class="sec-title">Tools &amp; Technologies</h2>
+  <p class="sec-sub">These are the tools I use to clean, model, and visualize data. Proficiency levels reflect real project use, not coursework alone.</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-head"><span class="skill-name">Power BI / DAX / Power Query</span><span class="skill-pct">92%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="92%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-head"><span class="skill-name">SQL (MySQL, SQL Server)</span><span class="skill-pct">86%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="86%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-head"><span class="skill-name">Excel (Advanced, Pivot, Power Query)</span><span class="skill-pct">91%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="91%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-head"><span class="skill-name">Tableau</span><span class="skill-pct">79%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="79%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-head"><span class="skill-name">Python (pandas, scikit-learn)</span><span class="skill-pct">66%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="66%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-head"><span class="skill-name">ETL Pipelines / SSAS / SSRS</span><span class="skill-pct">80%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="80%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-head"><span class="skill-name">Microsoft Azure (AZ-900)</span><span class="skill-pct">62%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="62%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-head"><span class="skill-name">PowerApps</span><span class="skill-pct">61%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="61%"></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section class="sec" id="projects">
+  <div class="eyebrow sec-eyebrow">Projects</div>
+  <h2 class="sec-title">32 Reports Across 8 Categories</h2>
+  <p class="sec-sub">Sales to HR, forecasting to supply chain. Filter by category or scroll through all of them.</p>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterCat('all',this)">All (32)</button>
+    <button class="filter-btn" onclick="filterCat('sales',this)">Sales</button>
+    <button class="filter-btn" onclick="filterCat('customer',this)">Customer</button>
+    <button class="filter-btn" onclick="filterCat('finance',this)">Finance</button>
+    <button class="filter-btn" onclick="filterCat('ops',this)">Operations</button>
+    <button class="filter-btn" onclick="filterCat('marketing',this)">Marketing</button>
+    <button class="filter-btn" onclick="filterCat('property',this)">Property</button>
+    <button class="filter-btn" onclick="filterCat('agriculture',this)">Agriculture</button>
+    <button class="filter-btn" onclick="filterCat('hr',this)">HR</button>
+  </div>
+
+  <div class="proj-grid">
+
+    <div class="pc" data-cat="sales">
+      <div class="pc-top"><span class="pc-cat c-sales">Sales</span><span class="pc-stat">3h saved / week</span></div>
+      <div class="pc-name">MODAF Farms Sales Performance Dashboard</div>
+      <p class="pc-desc">Live dashboard tracking daily revenue, product margins, and regional distribution across MODAF's animal product lines, including poultry, livestock, and related outputs. Replaced a manual Excel reporting process with automated Power BI dataflows. Used by the sales team daily.</p>
+      <div class="pc-tags"><span class="pc-tag">Power BI</span><span class="pc-tag">DAX</span><span class="pc-tag">Power Query</span><span class="pc-tag">Excel</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="sales">
+      <div class="pc-top"><span class="pc-cat c-sales">Sales</span><span class="pc-stat">6 regions mapped</span></div>
+      <div class="pc-name">Regional Sales Territory Heatmap</div>
+      <p class="pc-desc">Mapped 6 sales territories by revenue density and rep performance. Revealed 2 underserved zones, leading to a revised commission structure and a territory rebalancing exercise.</p>
+      <div class="pc-tags"><span class="pc-tag">Power BI</span><span class="pc-tag">SQL</span><span class="pc-tag">DAX</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="sales">
+      <div class="pc-top"><span class="pc-cat c-sales">Sales</span><span class="pc-stat">18 SKUs tracked</span></div>
+      <div class="pc-name">Product Mix and Revenue Margin Tracker</div>
+      <p class="pc-desc">Dynamic margin tracker for 18 product SKUs built in Excel. Allowed the team to identify low-margin items driving high volume but low contribution, and shift focus to higher-value product lines.</p>
+      <div class="pc-tags"><span class="pc-tag">Excel</span><span class="pc-tag">Power Query</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="sales">
+      <div class="pc-top"><span class="pc-cat c-sales">Sales</span><span class="pc-stat">91% accuracy</span></div>
+      <div class="pc-name">Monthly Sales Forecasting Model</div>
+      <p class="pc-desc">Time-series model trained on 24 months of historical data to forecast monthly sales volume. Achieved 91% accuracy over a 3-month validation window and helped procurement reduce overstocking by 15%.</p>
+      <div class="pc-tags"><span class="pc-tag">Python</span><span class="pc-tag">Excel</span><span class="pc-tag">pandas</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="sales">
+      <div class="pc-top"><span class="pc-cat c-sales">Sales</span><span class="pc-stat">12 distributors</span></div>
+      <div class="pc-name">Distributor Performance Scorecard</div>
+      <p class="pc-desc">Scorecard tracking volume, payment speed, and return rates across 12 distributors. Surfaced 3 consistently underperforming accounts and supported a renegotiation of credit terms with each.</p>
+      <div class="pc-tags"><span class="pc-tag">Power BI</span><span class="pc-tag">DAX</span><span class="pc-tag">SQL</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="customer">
+      <div class="pc-top"><span class="pc-cat c-customer">Customer</span><span class="pc-stat">5,000+ customers</span></div>
+      <div class="pc-name">Retail Customer Segmentation (RFM + K-Means)</div>
+      <p class="pc-desc">Applied RFM analysis and K-Means clustering to segment 5,000+ customers into four behavioral groups: Champions, At-Risk, Potential Loyalists, and Dormant. Output delivered as a pivot-ready Excel workbook.</p>
+      <div class="pc-tags"><span class="pc-tag">Python</span><span class="pc-tag">scikit-learn</span><span class="pc-tag">Excel</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="customer">
+      <div class="pc-top"><span class="pc-cat c-customer">Customer</span><span class="pc-stat">3yr CLV projection</span></div>
+      <div class="pc-name">Customer Lifetime Value Model</div>
+      <p class="pc-desc">Calculated 3-year CLV for each customer segment using historical purchase frequency, average order value, and cohort-level retention rates. The model informed acquisition budget limits per segment.</p>
+      <div class="pc-tags"><span class="pc-tag">SQL</span><span class="pc-tag">Excel</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="customer">
+      <div class="pc-top"><span class="pc-cat c-customer">Customer</span><span class="pc-stat">18% flagged</span></div>
+      <div class="pc-name">Churn Risk Identification Dashboard</div>
+      <p class="pc-desc">Power BI dashboard flagging customers with no purchase activity in 90 days. Enabled the retention team to prioritize 18% of the active base for outreach before accounts went fully dormant.</p>
+      <div class="pc-tags"><span class="pc-tag">Power BI</span><span class="pc-tag">SQL</span><span class="pc-tag">DAX</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="customer">
+      <div class="pc-top"><span class="pc-cat c-customer">Customer</span><span class="pc-stat">8 quarters</span></div>
+      <div class="pc-name">NPS Trend Analysis Report</div>
+      <p class="pc-desc">Consolidated NPS survey data across 8 quarters and visualized score trends by product line and support channel. Highlighted a consistent score drop following specific service changes across two product lines.</p>
+      <div class="pc-tags"><span class="pc-tag">Excel</span><span class="pc-tag">Tableau</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="customer">
+      <div class="pc-top"><span class="pc-cat c-customer">Customer</span><span class="pc-stat">14% basket uplift</span></div>
+      <div class="pc-name">Basket Size and Purchase Frequency Report</div>
+      <p class="pc-desc">Analyzed order-level data to identify product combinations linked to 14% higher basket values. Findings informed a product bundling strategy that went live in the following quarter.</p>
+      <div class="pc-tags"><span class="pc-tag">SQL</span><span class="pc-tag">Excel</span><span class="pc-tag">Power BI</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="finance">
+      <div class="pc-top"><span class="pc-cat c-finance">Finance</span><span class="pc-stat">8 currency pairs</span></div>
+      <div class="pc-name">FX Trading Performance Monitor</div>
+      <p class="pc-desc">Live dashboard tracking win rate, drawdown, risk-to-reward, and profit factor for a live MT5 algorithmic strategy across 8 currency pairs. Used daily for performance review and early risk detection.</p>
+      <div class="pc-tags"><span class="pc-tag">SQL</span><span class="pc-tag">Power BI</span><span class="pc-tag">DAX</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="finance">
+      <div class="pc-top"><span class="pc-cat c-finance">Finance</span><span class="pc-stat">12-month rolling view</span></div>
+      <div class="pc-name">SME Cash Flow Dashboard</div>
+      <p class="pc-desc">Rolling 12-month cash flow tracker for a small business with visual indicators for months at risk of a negative balance. Helped the owner time credit drawdowns and defer non-urgent expenses.</p>
+      <div class="pc-tags"><span class="pc-tag">Excel</span><span class="pc-tag">Power Query</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="finance">
+      <div class="pc-top"><span class="pc-cat c-finance">Finance</span><span class="pc-stat">9 departments</span></div>
+      <div class="pc-name">Budget vs Actuals Variance Report</div>
+      <p class="pc-desc">Monthly variance report comparing budget to actuals across 9 departments, with drill-through by cost center and expense category. Reduced time spent on monthly close by surfacing data issues early.</p>
+      <div class="pc-tags"><span class="pc-tag">Power BI</span><span class="pc-tag">DAX</span><span class="pc-tag">Excel</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="finance">
+      <div class="pc-top"><span class="pc-cat c-finance">Finance</span><span class="pc-stat">6 departments</span></div>
+      <div class="pc-name">Departmental P&amp;L Dashboard</div>
+      <p class="pc-desc">Consolidated profit and loss statements from 6 departments into a single Power BI dashboard. Finance leads track month-on-month trends and compare performance across teams without manual file merging.</p>
+      <div class="pc-tags"><span class="pc-tag">Excel</span><span class="pc-tag">Power BI</span><span class="pc-tag">Power Query</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="finance">
+      <div class="pc-top"><span class="pc-cat c-finance">Finance</span><span class="pc-stat">3yr analysis</span></div>
+      <div class="pc-name">Import Cost FX Impact Analysis</div>
+      <p class="pc-desc">Analyzed 3 years of import records to quantify how naira depreciation affected landed cost per product category. The report supported a leadership decision to adjust product pricing and renegotiate payment terms with suppliers.</p>
+      <div class="pc-tags"><span class="pc-tag">SQL</span><span class="pc-tag">Excel</span><span class="pc-tag">Tableau</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="ops">
+      <div class="pc-top"><span class="pc-cat c-ops">Operations</span><span class="pc-stat">300 order sheets</span></div>
+      <div class="pc-name">Fateemah Laundry Express: Operations Workbook</div>
+      <p class="pc-desc">Full business management workbook with automated pricing, order tracking across 300 sheets, and a revenue analytics summary. Power Query consolidates all order sheets automatically on refresh.</p>
+      <div class="pc-tags"><span class="pc-tag">Excel</span><span class="pc-tag">Power Query</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="ops">
+      <div class="pc-top"><span class="pc-cat c-ops">Operations</span><span class="pc-stat">40% dead stock found</span></div>
+      <div class="pc-name">Inventory Turnover and Dead Stock Report</div>
+      <p class="pc-desc">Queried 12 months of stock movement data to calculate turnover by SKU. Identified 40% of inventory as dead stock, enabling the warehouse team to run a clearance program and recover shelf space.</p>
+      <div class="pc-tags"><span class="pc-tag">SQL</span><span class="pc-tag">Power BI</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="ops">
+      <div class="pc-top"><span class="pc-cat c-ops">Operations</span><span class="pc-stat">2,800 orders tracked</span></div>
+      <div class="pc-name">Delivery SLA Compliance Tracker</div>
+      <p class="pc-desc">Tracked on-time delivery performance for 2,800 orders across 4 logistics partners. Exposed one partner with a 63% SLA miss rate, prompting a contract review and renegotiation of service terms.</p>
+      <div class="pc-tags"><span class="pc-tag">Excel</span><span class="pc-tag">Power BI</span><span class="pc-tag">SQL</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="ops">
+      <div class="pc-top"><span class="pc-cat c-ops">Operations</span><span class="pc-stat">5 spend categories</span></div>
+      <div class="pc-name">Procurement Spend Category Analysis</div>
+      <p class="pc-desc">Analyzed procurement data across 5 spending categories to find consolidation opportunities and flag suppliers priced above market. Led to renegotiations with 2 key vendors and a 9% cost reduction.</p>
+      <div class="pc-tags"><span class="pc-tag">SQL</span><span class="pc-tag">Tableau</span><span class="pc-tag">Excel</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="ops">
+      <div class="pc-top"><span class="pc-cat c-ops">Operations</span><span class="pc-stat">Real-time KPI</span></div>
+      <div class="pc-name">Warehouse Fill Rate Dashboard</div>
+      <p class="pc-desc">Live Power BI dashboard tracking order fulfillment rate, pick accuracy, and daily throughput with DAX time intelligence measures for same-day vs prior-week comparisons across multiple warehouse zones.</p>
+      <div class="pc-tags"><span class="pc-tag">Power BI</span><span class="pc-tag">DAX</span><span class="pc-tag">Power Query</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="marketing">
+      <div class="pc-top"><span class="pc-cat c-marketing">Marketing</span><span class="pc-stat">5 channels</span></div>
+      <div class="pc-name">Digital Ad Campaign Performance Dashboard</div>
+      <p class="pc-desc">Unified ad performance data from 5 digital channels into one Power BI report. Tracked CPL, ROAS, and conversion rate by audience segment, enabling budget reallocation toward higher-returning channels.</p>
+      <div class="pc-tags"><span class="pc-tag">Excel</span><span class="pc-tag">Power BI</span><span class="pc-tag">Power Query</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="marketing">
+      <div class="pc-top"><span class="pc-cat c-marketing">Marketing</span><span class="pc-stat">40 campaigns</span></div>
+      <div class="pc-name">Email Marketing ROI Tracker</div>
+      <p class="pc-desc">Analyzed open rate, click rate, and revenue attribution for 40 email campaigns over 6 months. Identified subject line patterns and send-time windows that consistently outperformed the average by over 20%.</p>
+      <div class="pc-tags"><span class="pc-tag">Excel</span><span class="pc-tag">Python</span><span class="pc-tag">pandas</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="marketing">
+      <div class="pc-top"><span class="pc-cat c-marketing">Marketing</span><span class="pc-stat">4-stage funnel</span></div>
+      <div class="pc-name">Lead Funnel Conversion Report</div>
+      <p class="pc-desc">Mapped a 4-stage sales funnel from lead capture to closed deal. Calculated drop-off rate at each stage by product line and found that 60% of leads stalled at the proposal stage, prompting a process audit.</p>
+      <div class="pc-tags"><span class="pc-tag">SQL</span><span class="pc-tag">Tableau</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="marketing">
+      <div class="pc-top"><span class="pc-cat c-marketing">Marketing</span><span class="pc-stat">6 months of data</span></div>
+      <div class="pc-name">Social Media Engagement Analytics</div>
+      <p class="pc-desc">Pulled and analyzed engagement data from social platforms over 6 months to identify top content formats and posting windows. Video content drove 3x the average engagement of static image posts.</p>
+      <div class="pc-tags"><span class="pc-tag">Python</span><span class="pc-tag">Excel</span><span class="pc-tag">Tableau</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="property">
+      <div class="pc-top"><span class="pc-cat c-property">Property</span><span class="pc-stat">1,400+ listings</span></div>
+      <div class="pc-name">Lagos Housing Market Price Index</div>
+      <p class="pc-desc">Built a price index across Lagos LGAs using 1,400+ property listings, showing average price per sqm by area and property type. Found 3-bedroom flats in Surulere priced 22% below comparable areas.</p>
+      <div class="pc-tags"><span class="pc-tag">SQL</span><span class="pc-tag">Tableau</span><span class="pc-tag">Python</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="property">
+      <div class="pc-top"><span class="pc-cat c-property">Property</span><span class="pc-stat">20 LGAs compared</span></div>
+      <div class="pc-name">Rental Yield Comparison by LGA</div>
+      <p class="pc-desc">Calculated and ranked gross rental yield across 20 Lagos LGAs using listing price and market rent data. Yaba, Gbagada, and Ojodu emerged as the top three highest-yield zones for residential investment.</p>
+      <div class="pc-tags"><span class="pc-tag">Excel</span><span class="pc-tag">Power BI</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="property">
+      <div class="pc-top"><span class="pc-cat c-property">Property</span><span class="pc-stat">18-month trend</span></div>
+      <div class="pc-name">Commercial Property Vacancy Trend Dashboard</div>
+      <p class="pc-desc">Tracked commercial vacancy rates across Lagos Island and Mainland over 18 months. Island vacancy rose sharply after Q3 2023, correlating with a visible shift in office lease activity toward the Mainland.</p>
+      <div class="pc-tags"><span class="pc-tag">Excel</span><span class="pc-tag">Tableau</span><span class="pc-tag">SQL</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="agriculture">
+      <div class="pc-top"><span class="pc-cat c-agriculture">Agriculture</span><span class="pc-stat">4 feed types</span></div>
+      <div class="pc-name">Livestock Feed Cost vs Weight Gain Analysis</div>
+      <p class="pc-desc">Analyzed feed intake and weight gain data across 4 feed types for a livestock operation. Identified which feed combinations delivered the best cost-per-kg of output, directly informing feed procurement decisions.</p>
+      <div class="pc-tags"><span class="pc-tag">Excel</span><span class="pc-tag">Python</span><span class="pc-tag">pandas</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="agriculture">
+      <div class="pc-top"><span class="pc-cat c-agriculture">Agriculture</span><span class="pc-stat">12 commodities</span></div>
+      <div class="pc-name">Lagos Food Market Price Tracker</div>
+      <p class="pc-desc">Dashboard tracking weekly retail prices for 12 food commodities across major Lagos markets. Includes alerts for prices exceeding 3-month rolling averages, useful for procurement teams and household budget planning.</p>
+      <div class="pc-tags"><span class="pc-tag">SQL</span><span class="pc-tag">Power BI</span><span class="pc-tag">DAX</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="agriculture">
+      <div class="pc-top"><span class="pc-cat c-agriculture">Agriculture</span><span class="pc-stat">4 bottlenecks found</span></div>
+      <div class="pc-name">Agricultural Supply Chain Bottleneck Report</div>
+      <p class="pc-desc">Mapped the end-to-end supply chain for an animal product distributor and identified 4 recurring bottlenecks causing delivery delays. The report was used to redesign route scheduling and reduce average delivery time.</p>
+      <div class="pc-tags"><span class="pc-tag">Excel</span><span class="pc-tag">Power BI</span><span class="pc-tag">Tableau</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="hr">
+      <div class="pc-top"><span class="pc-cat c-hr">HR</span><span class="pc-stat">3yr attrition data</span></div>
+      <div class="pc-name">Workforce Attrition Analysis</div>
+      <p class="pc-desc">Analyzed 3 years of exit data to identify attrition patterns by department, tenure, and role level. Found that 68% of voluntary exits happened within the first 18 months, pointing to onboarding and early-tenure gaps.</p>
+      <div class="pc-tags"><span class="pc-tag">SQL</span><span class="pc-tag">Power BI</span><span class="pc-tag">DAX</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+    <div class="pc" data-cat="hr">
+      <div class="pc-top"><span class="pc-cat c-hr">HR</span><span class="pc-stat">5 hiring stages</span></div>
+      <div class="pc-name">Recruitment Pipeline Dashboard</div>
+      <p class="pc-desc">Hiring pipeline tracker showing time-to-fill, drop-off rate per stage, and source quality across 5 recruitment stages. Employee referrals had the highest conversion rate and the lowest average time-to-hire of any source.</p>
+      <div class="pc-tags"><span class="pc-tag">Excel</span><span class="pc-tag">Power BI</span><span class="pc-tag">SQL</span></div>
+      <div class="pc-footer"><a href="#" class="pc-gh" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> View on GitHub</a></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CODE -->
+<div class="code-wrap" id="code">
+  <div class="code-inner">
+    <div class="eyebrow sec-eyebrow">Code Samples</div>
+    <h2 class="sec-title">SQL &amp; Python</h2>
+    <p class="sec-sub" style="margin-bottom:32px;">Real queries and scripts from project work. These show how I clean, transform, and analyze data before it reaches a dashboard.</p>
+    <div class="code-box">
+      <div class="code-tabs">
+        <div class="code-tab on" onclick="switchTab('sql')">sales_ranking.sql</div>
+        <div class="code-tab" onclick="switchTab('py')">segment_customers.py</div>
+      </div>
+      <div class="code-panel on" id="tab-sql"><pre><span class="cm">-- Top 3 product categories by revenue in each region</span>
+<span class="cm">-- Uses a CTE + window function to rank within each region</span>
+
+<span class="kw">WITH</span> sales_base <span class="kw">AS</span> (
+    <span class="kw">SELECT</span>
+        product_category,
+        region,
+        <span class="fn">SUM</span>(quantity_sold)                                       <span class="kw">AS</span> total_units,
+        <span class="fn">SUM</span>(revenue)                                             <span class="kw">AS</span> total_revenue,
+        <span class="fn">ROUND</span>(<span class="fn">SUM</span>(revenue) / <span class="fn">NULLIF</span>(<span class="fn">SUM</span>(quantity_sold), <span class="nm">0</span>), <span class="nm">2</span>)  <span class="kw">AS</span> avg_price_per_unit
+    <span class="kw">FROM</span>   sales_transactions
+    <span class="kw">WHERE</span>  transaction_date <span class="kw">BETWEEN</span> <span class="st">'2024-01-01'</span> <span class="kw">AND</span> <span class="st">'2024-12-31'</span>
+      <span class="kw">AND</span>  status <span class="op">=</span> <span class="st">'Completed'</span>
+    <span class="kw">GROUP  BY</span> product_category, region
+),
+ranked <span class="kw">AS</span> (
+    <span class="kw">SELECT</span>
+        <span class="op">*</span>,
+        <span class="fn">RANK</span>() <span class="kw">OVER</span> (
+            <span class="kw">PARTITION BY</span> region
+            <span class="kw">ORDER BY</span>     total_revenue <span class="kw">DESC</span>
+        ) <span class="kw">AS</span> revenue_rank
+    <span class="kw">FROM</span> sales_base
+)
+<span class="kw">SELECT</span> <span class="op">*</span>
+<span class="kw">FROM</span>   ranked
+<span class="kw">WHERE</span>  revenue_rank <span class="op">&lt;=</span> <span class="nm">3</span>
+<span class="kw">ORDER  BY</span> region, revenue_rank;</pre></div>
+      <div class="code-panel" id="tab-py"><pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> StandardScaler
+<span class="kw">from</span> sklearn.cluster      <span class="kw">import</span> KMeans
+<span class="kw">import</span> datetime
+
+<span class="cm"># Load transaction history</span>
+df <span class="op">=</span> pd.<span class="fn">read_csv</span>(<span class="st">'transactions.csv'</span>, parse_dates<span class="op">=</span>[<span class="st">'order_date'</span>])
+ref_date <span class="op">=</span> df[<span class="st">'order_date'</span>].<span class="fn">max</span>() <span class="op">+</span> datetime.<span class="fn">timedelta</span>(days<span class="op">=</span><span class="nm">1</span>)
+
+<span class="cm"># Build RFM table</span>
+rfm <span class="op">=</span> df.<span class="fn">groupby</span>(<span class="st">'customer_id'</span>).<span class="fn">agg</span>(
+    recency   <span class="op">=</span> (<span class="st">'order_date'</span>,  <span class="kw">lambda</span> x: (ref_date <span class="op">-</span> x.<span class="fn">max</span>()).days),
+    frequency <span class="op">=</span> (<span class="st">'order_id'</span>,    <span class="st">'count'</span>),
+    monetary  <span class="op">=</span> (<span class="st">'order_value'</span>, <span class="st">'sum'</span>)
+).<span class="fn">reset_index</span>()
+
+<span class="cm"># Scale features, then cluster into 4 segments</span>
+scaler <span class="op">=</span> <span class="fn">StandardScaler</span>()
+X      <span class="op">=</span> scaler.<span class="fn">fit_transform</span>(rfm[[<span class="st">'recency'</span>, <span class="st">'frequency'</span>, <span class="st">'monetary'</span>]])
+
+km <span class="op">=</span> <span class="fn">KMeans</span>(n_clusters<span class="op">=</span><span class="nm">4</span>, random_state<span class="op">=</span><span class="nm">42</span>, n_init<span class="op">=</span><span class="nm">10</span>)
+rfm[<span class="st">'segment'</span>] <span class="op">=</span> km.<span class="fn">fit_predict</span>(X)
+
+<span class="cm"># Map cluster IDs to human-readable labels</span>
+labels <span class="op">=</span> {<span class="nm">0</span>: <span class="st">'Champions'</span>, <span class="nm">1</span>: <span class="st">'At-Risk'</span>,
+           <span class="nm">2</span>: <span class="st">'Potential Loyalists'</span>, <span class="nm">3</span>: <span class="st">'Dormant'</span>}
+rfm[<span class="st">'segment_name'</span>] <span class="op">=</span> rfm[<span class="st">'segment'</span>].<span class="fn">map</span>(labels)
+
+<span class="cm"># Export for stakeholders as a pivot-ready Excel file</span>
+rfm.<span class="fn">to_excel</span>(<span class="st">'customer_segments.xlsx'</span>, index<span class="op">=</span><span class="kw">False</span>)
+<span class="fn">print</span>(rfm.<span class="fn">groupby</span>(<span class="st">'segment_name'</span>)[<span class="st">'customer_id'</span>].<span class="fn">count</span>())</pre></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div class="contact-sec">
+    <div class="eyebrow sec-eyebrow" style="justify-content:center;">Contact</div>
+    <h2 class="sec-title">Open to Opportunities</h2>
+    <p>I am actively looking for Data Analyst and BI Analyst roles in Lagos and remotely. Reach out by email or connect on LinkedIn.</p>
+    <div class="contact-links">
+      <a href="mailto:habeeb.adigun@gmail.com" class="contact-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email
+      </a>
+      <a href="https://linkedin.com/in/habeeb-adigun" target="_blank" class="contact-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/habeeb-adigun" target="_blank" class="contact-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+      <a href="tel:+2348158562300" class="contact-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 11a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.07 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +234 815 856 2300
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>Habeeb O. Adigun &nbsp;·&nbsp; Lagos, Nigeria &nbsp;·&nbsp; Data &amp; BI Analyst</footer>
+
+<script>
+/* ── SVG line animation: measure actual path length ── */
+window.addEventListener('DOMContentLoaded', () => {
+  const line = document.getElementById('cLine');
+  if (line) {
+    const len = line.getTotalLength();
+    line.style.strokeDasharray  = len;
+    line.style.strokeDashoffset = len;
+    line.style.transition = 'stroke-dashoffset 2.4s cubic-bezier(0.4,0,0.2,1) 0.4s';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => { line.style.strokeDashoffset = '0'; });
+    });
+  }
+});
+
+/* ── Project category filter ── */
+function filterCat(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pc').forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+
+/* ── Code tab switcher ── */
+function switchTab(id) {
+  document.querySelectorAll('.code-tab').forEach(t => t.classList.remove('on'));
+  document.querySelectorAll('.code-panel').forEach(p => p.classList.remove('on'));
+  const tab   = document.querySelector(`.code-tab[onclick="switchTab('${id}')"]`);
+  const panel = document.getElementById(`tab-${id}`);
+  if (tab)   tab.classList.add('on');
+  if (panel) panel.classList.add('on');
+}
+
+/* ── Scroll-triggered visibility ── */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('vis');
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+/* ── Skill bars ── */
+const skillObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+      bar.style.width = bar.dataset.w;
+    });
+    skillObs.unobserve(entry.target);
+  });
+}, { threshold: 0.2 });
+
+const skillSec = document.getElementById('skills');
+if (skillSec) skillObs.observe(skillSec);
+</script>
+</body>
+</html>
